@@ -5,3 +5,12 @@ edition = "2024"
 
 [dependencies]
 rand = "0.9.0"
+
+[lints.rust]
+unsafe_code = "forbid"
+redundant_imports = "deny"
+redundant_lifetimes = "deny"
+
+[lints.clippy]
+expect_used = "deny"
+unwrap_used = "deny"
