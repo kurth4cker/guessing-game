@@ -1,7 +1,13 @@
 use std::cmp::Ordering;
 use std::io;
+use std::process::exit;
 
 use rand::Rng;
+
+fn handle_error<T>(err: io::Error) -> T {
+    eprintln!("error: {}", err);
+    exit(1);
+}
 
 fn main() {
     println!("Guess the number!");
@@ -15,7 +21,7 @@ fn main() {
 
         io::stdin()
             .read_line(&mut guess)
-            .expect("Failed to read line");
+            .unwrap_or_else(handle_error);
 
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
