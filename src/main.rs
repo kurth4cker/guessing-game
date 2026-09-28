@@ -14,10 +14,11 @@ fn main() {
 
     let secret_number = rand::rng().random_range(1..=100);
 
+    let mut guess = String::new();
     loop {
         println!("Please input your gues: ");
 
-        let mut guess = String::new();
+        guess.clear();
 
         io::stdin()
             .read_line(&mut guess)
